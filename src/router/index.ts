@@ -1,3 +1,8 @@
+/*
+ * @Descripttion:
+ * @Date: 2021-06-29 21:54:24
+ * @LastEditTime: 2021-08-03 00:10:46
+ */
 import {
     createRouter,
     createWebHashHistory,
@@ -9,11 +14,6 @@ import {
       path: '/',
       name: 'Home',
       component: Home
-    },
-    {
-      path: '/search',
-      name: 'Search',
-      component: () => import('@/views/search/index.vue') // 懒加载组件
     }
   ]
 
