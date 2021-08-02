@@ -1,0 +1,39 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "parser": "@typescript-eslint/parser",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "vue",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "linebreak-style": [
+            "off",
+            "windows"
+        ],
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ]
+    }
+}
