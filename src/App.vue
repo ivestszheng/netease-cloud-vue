@@ -1,3 +1,8 @@
+<!--
+ * @Descripttion:
+ * @Date: 2021-06-29 21:54:24
+ * @LastEditTime: 2021-08-03 23:22:56
+-->
 <template>
   <router-view/>
 </template>
@@ -16,6 +21,5 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

@@ -2,7 +2,7 @@
  * @Descripttion: 轮播图组件
  * @Author: 无声<ivestszheng@qq.com>
  * @Date: 2021-06-29 21:59:32
- * @LastEditTime: 2021-07-08 15:02:10
+ * @LastEditTime: 2021-08-03 23:10:59
 -->
 <template>
     <van-swipe class="my-swipe" :autoplay="3000" lazy-render>
@@ -35,10 +35,8 @@ export default {
 </script>
 <style lang="less" scoped>
 .my-swipe {
-    height: 10rem;
     img {
         width: 100%;
-        height: 100%;
     }
 }
 </style>
