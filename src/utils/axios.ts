@@ -2,7 +2,7 @@
  * @Descripttion: Axios 二次封装
  * @Author: 无声<ivestszheng@qq.com>
  * @Date: 2021-06-29 22:01:10
- * @LastEditTime: 2021-06-30 08:58:04
+ * @LastEditTime: 2021-08-03 16:31:40
  */
 import Axios from 'axios'
 import { Toast } from 'vant'
@@ -62,9 +62,9 @@ export function get(url: string,params={}){
     })
 }
 // 封装 post 方法
-export function post(url: string,params={}){
+export function post(url: string,data={}){
     return new Promise((resolve,reject)=>{
-        axios.get(url,{params:params})
+        axios.post(url,{data:data})
                 .then((res) => {
                     resolve(res)
                 })
