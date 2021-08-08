@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 图标列表组件
  * @Date: 2021-08-08 14:26:16
- * @LastEditTime: 2021-08-08 17:33:57
+ * @LastEditTime: 2021-08-08 21:07:13
 -->
 <template>
   <div class="iconList">
@@ -9,7 +9,7 @@
       <div class="icon">
         <img :src="item.iconUrl" />
       </div>
-      <div class="font">{{ item.name }}</div>
+      <div class="text">{{ item.name }}</div>
     </div>
   </div>
 </template>
@@ -39,16 +39,20 @@ export default {
 <style lang="less" scoped>
 .iconList {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   overflow-x: auto;
   padding: 0.2rem 0;
+  height: 1.1rem;
+  border-bottom: 1px solid rgba(185, 185, 185, 0.4);
+  margin-bottom: 0.15rem;
   .iconItem {
-    width: 1.2rem;
-    height: 1.2rem;
-    margin-right: 0.5rem;
+    margin-right: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .icon {
-      width: 1rem;
-      height: 1rem;
+      width: 0.8rem;
+      height: 0.8rem;
       background: red;
       border-radius: 50%;
       img {
@@ -56,10 +60,12 @@ export default {
         height: 100%;
       }
     }
-    .font {
+    .text {
       font-size: 0.25rem;
       overflow: hidden;
+      text-overflow: ellipsis;
       white-space: nowrap;
+      min-width: 0.9rem;
     }
   }
 }
