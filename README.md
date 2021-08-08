@@ -1,27 +1,66 @@
-# Vue 3 + Typescript + Vite
+# 网易云音乐移动端
 
-This template should help get you started developing with Vue 3 and Typescript in Vite.
+## 环境要求
 
-## Recommended IDE Setup
+需要 NodeJS 8.12+ 环境
 
-[VSCode](https://code.visualstudio.com/) + [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur). Make sure to enable `vetur.experimental.templateInterpolationService` in settings!
+## 安装
 
-### If Using `<script setup>`
+> 后端项目：**[NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)**
+>
+> 该后端具体内容请阅读 README.md 或查阅文档
 
-[`<script setup>`](https://github.com/vuejs/rfcs/pull/227) is a feature that is currently in RFC stage. To get proper IDE support for the syntax, use [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) instead of Vetur (and disable Vetur).
+### 前端(本项目)
 
-## Type Support For `.vue` Imports in TS
+```shell
+$ git clone git@github.com:ivestszheng/wusheng-music.git 
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can use the following:
+$ npm install
+```
 
-### If Using Volar
+### 后端
 
-Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
+```shell
+$ git clone git@github.com:Binaryify/NeteaseCloudMusicApi.git 
 
-### If Using Vetur
+$ npm install
+```
 
-1. Install and add `@vuedx/typescript-plugin-vue` to the [plugins section](https://www.typescriptlang.org/tsconfig#plugins) in `tsconfig.json`
-2. Delete `src/shims-vue.d.ts` as it is no longer needed to provide module info to Typescript
-3. Open `src/main.ts` in VSCode
-4. Open the VSCode command palette
-5. Search and run "Select TypeScript version" -> "Use workspace version"
+## 运行
+
+### 前端（本项目）
+
+```shell
+npm run dev
+```
+
+项目启动默认端口为 4000
+
+### 后端
+
+服务器启动默认端口为 3000,若不想使用 3000 端口,可使用以下命令: Mac/Linux
+
+```shell
+$ PORT=4000 node app.js
+```
+
+windows 下使用 git-bash 或者 cmder 等终端执行以下命令:
+
+```shell
+$ set PORT=4000 && node app.js
+```
+
+## 介绍
+
+通过 Vue 实现网易云音乐移动端，希望通过本项目熟练掌握 Vue3 及移动端开发技巧。
+
+## 技术栈
+
+- Vue3
+- Vant
+- Axios
+- Vue-Router
+- Less
+
+
+
