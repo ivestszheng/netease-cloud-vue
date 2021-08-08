@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 图标列表组件
  * @Date: 2021-08-08 14:26:16
- * @LastEditTime: 2021-08-08 17:04:24
+ * @LastEditTime: 2021-08-08 17:33:57
 -->
 <template>
   <div class="iconList">
@@ -58,11 +58,13 @@ export default {
     }
     .font {
       font-size: 0.25rem;
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 }
-  /*-------隐藏滚动条----*/
-  .iconList::-webkit-scrollbar {
-    display: none;
-  }
+/*-------隐藏滚动条----*/
+.iconList::-webkit-scrollbar {
+  display: none;
+}
 </style>
