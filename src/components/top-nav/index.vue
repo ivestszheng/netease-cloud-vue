@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 头部导航
  * @Date: 2021-08-01 22:39:21
- * @LastEditTime: 2021-08-03 23:37:39
+ * @LastEditTime: 2021-08-08 17:09:44
 -->
 <template>
     <div class="topNav">
@@ -33,7 +33,6 @@ export default {
 
 <style lang="less" scoped>
 .topNav{
-    width: 7.5rem;
     height: 1rem;
     display: flex;
     justify-content: space-between;
