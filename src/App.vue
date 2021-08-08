@@ -1,10 +1,10 @@
 <!--
  * @Descripttion:
  * @Date: 2021-06-29 21:54:24
- * @LastEditTime: 2021-08-03 23:22:56
+ * @LastEditTime: 2021-08-08 17:06:56
 -->
 <template>
-  <router-view/>
+  <router-view />
 </template>
 
 <script lang="ts">
@@ -21,5 +21,6 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  padding: 0 0.25rem;
 }
 </style>
