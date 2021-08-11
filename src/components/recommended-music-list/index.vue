@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 推荐歌单
  * @Date: 2021-08-08 17:44:07
- * @LastEditTime: 2021-08-09 22:54:05
+ * @LastEditTime: 2021-08-11 23:37:33
 -->
 <template>
   <div>
@@ -10,7 +10,7 @@
       <span class="more">更多 ></span>
     </div>
     <div class="items">
-      <div class="item" v-for="(item, i) in recommendedMusicList" :key="i">
+      <div class="item" v-for="(item, i) in state.recommendedMusicList" :key="i">
         <img :src="item.picUrl" :alt="item.name" />
         <div class="title">{{ item.name }}</div>
         <div class="count">
@@ -26,15 +26,33 @@
 
 <script lang='ts'>
 import { getRecommendedMusicList } from '@/utils/api'
-
+import { reactive, onMounted, onUpdated } from 'vue'
+// export default {
+//   data() {
+//     return {
+//       recommendedMusicList: []
+//     }
+//   },
+//   methods: {
+//     changeVal(num: any) {
+//       let res: Number | String = 0
+//       if (num >= 100000000) {
+//         res = (num / 100000000).toFixed(2) + '亿'
+//       } else if (num > 10000) {
+//         res = (num / 10000).toFixed(0) + '万'
+//       }
+//       return res
+//     }
+//   },
+//   mounted: async function () {
+//     let res = await getRecommendedMusicList()
+//     this.recommendedMusicList = res.data.result
+//   }
+// }
 export default {
-  data() {
-    return {
-      recommendedMusicList: []
-    }
-  },
-  methods: {
-    changeVal(num: any) {
+  setup() {
+    let state = reactive({recommendedMusicList:[]})
+    function changeVal(num: any) {
       let res: Number | String = 0
       if (num >= 100000000) {
         res = (num / 100000000).toFixed(2) + '亿'
@@ -43,10 +61,14 @@ export default {
       }
       return res
     }
-  },
-  mounted: async function () {
-    let res = await getRecommendedMusicList()
-    this.recommendedMusicList = res.data.result
+    onMounted(async () => {
+      let res = await getRecommendedMusicList()
+      state.recommendedMusicList = res.data.result
+    })
+    return {
+      state,
+      changeVal
+    }
   }
 }
 </script>
@@ -75,7 +97,7 @@ export default {
 .items {
   display: flex;
   overflow-x: auto;
-    padding-top: 0.25rem;
+  padding-top: 0.25rem;
   .item {
     margin-right: 0.2rem;
     position: relative;
@@ -94,7 +116,7 @@ export default {
       top: 0.1rem;
       right: 0.1rem;
       color: #fff;
-      background: rgba(0, 0, 0, .4);
+      background: rgba(0, 0, 0, 0.4);
       border-radius: 0.2rem;
       padding: 0 0.1rem;
       display: flex;
@@ -111,7 +133,7 @@ export default {
       width: 2rem;
       height: auto;
       border-radius: 5%;
-      box-shadow: 2px 2px 2px 1px rgba(128,128,128,.2);
+      box-shadow: 2px 2px 2px 1px rgba(128, 128, 128, 0.2);
     }
   }
 }
