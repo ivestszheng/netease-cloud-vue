@@ -1,20 +1,20 @@
 <!--
  * @Descripttion: 图标列表组件
  * @Date: 2021-08-08 14:26:16
- * @LastEditTime: 2021-08-08 21:07:13
+ * @LastEditTime: 2021-08-12 00:07:23
 -->
 <template>
   <div class="iconList">
-    <div class="iconItem" v-for="item in iconList" :key="item.id">
+    <div class="iconItem" v-for="item in iconList" :key="item['id']">
       <div class="icon">
-        <img :src="item.iconUrl" />
+        <img :src="item['iconUrl']" />
       </div>
-      <div class="text">{{ item.name }}</div>
+      <div class="text">{{ item['name'] }}</div>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { getHomeList } from '../../utils/api';
 
 export default {
@@ -25,10 +25,10 @@ export default {
     }
   },
   mounted() {
-    getHomeList().then((res) => {
+    getHomeList().then((res:any) => {
+      console.log('ressssss',res);
       if (res.status == 200) {
         this.iconList = res.data.data
-        console.log(this.iconList);
       }
     });
   },
