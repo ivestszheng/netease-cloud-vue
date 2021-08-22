@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 推荐歌单
  * @Date: 2021-08-08 17:44:07
- * @LastEditTime: 2021-08-11 23:42:03
+ * @LastEditTime: 2021-08-22 23:34:06
 -->
 <template>
   <div>
@@ -10,7 +10,7 @@
       <span class="more">更多 ></span>
     </div>
     <div class="items">
-      <div class="item" v-for="(item, i) in state.recommendedMusicList" :key="i">
+      <router-link :to="{path: '/listView',query:{id: item['id']}}" class="item" v-for="(item, i) in state.recommendedMusicList" :key="i">
         <img :src="item['picUrl']" :alt="item['name']" />
         <div class="title">{{ item['name'] }}</div>
         <div class="count">
@@ -19,7 +19,7 @@
           </svg>
           {{ changeVal(item['playCount']) }}
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -51,7 +51,7 @@ import { reactive, onMounted, onUpdated } from 'vue'
 // }
 export default {
   setup() {
-    let state = reactive({recommendedMusicList:[]})
+    let state = reactive({ recommendedMusicList: [] })
     function changeVal(num: any) {
       let res: Number | String = 0
       if (num >= 100000000) {

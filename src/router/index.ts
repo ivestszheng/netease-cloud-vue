@@ -1,20 +1,25 @@
 /*
  * @Descripttion:
  * @Date: 2021-06-29 21:54:24
- * @LastEditTime: 2021-08-03 00:10:46
+ * @LastEditTime: 2021-08-22 23:19:58
  */
 import {
     createRouter,
     createWebHashHistory,
     RouteRecordRaw
   } from 'vue-router'
-  import Home from '@/views/home/index.vue'
+  
   const routes: Array<RouteRecordRaw> = [
     {
       path: '/',
       name: 'Home',
-      component: Home
-    }
+      component: ()=>import('@/views/Home/index.vue')
+    },
+    {
+      path: '/listView',
+      name: 'ListView',
+      component: ()=>import('@/views/ListView/index.vue')
+    },
   ]
 
   const router = createRouter({
