@@ -1,17 +1,16 @@
 <!--
  * @Descripttion: 歌单详情
  * @Date: 2021-08-22 23:27:56
- * @LastEditTime: 2021-09-09 23:12:00
+ * @LastEditTime: 2021-09-09 23:54:09
 -->
 <template>
   <div class="listView">
-    <list-view-top :playlist="state.playlist" />
-    {{state.playlist.commentCount}}
+    <list-view-top :playlist="playlist" />
   </div>
 </template>
 
 <script lang='ts'>
-import { onMounted, reactive } from 'vue'
+import { onMounted, reactive, toRefs } from 'vue'
 import { getMusicListDetail } from '@/utils/api'
 import { useRoute } from 'vue-router'
 import ListViewTop from '@/components/list-view-top/index.vue'
@@ -26,7 +25,7 @@ export default {
       state.playlist = res.data.playlist
       console.log(res)
     })
-      return {state}
+      return {...toRefs(state)}
   },
   components: {
     ListViewTop,
