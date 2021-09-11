@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 推荐歌单
  * @Date: 2021-08-08 17:44:07
- * @LastEditTime: 2021-09-11 14:14:57
+ * @LastEditTime: 2021-09-11 17:06:39
 -->
 <template>
   <div>
@@ -58,6 +58,8 @@ export default {
         res = (num / 100000000).toFixed(2) + '亿'
       } else if (num > 10000) {
         res = (num / 10000).toFixed(0) + '万'
+      }else{
+        res = num
       }
       return res
     }

@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-08-23 22:54:07
- * @LastEditTime: 2021-09-11 16:17:54
+ * @LastEditTime: 2021-09-11 17:06:47
 -->
 <template>
 <div class="container">
@@ -82,6 +82,8 @@ export default {
         res = (num / 100000000).toFixed(2) + '亿'
       } else if (num > 10000) {
         res = (num / 10000).toFixed(0) + '万'
+      }else{
+        res = num
       }
       return res
     }
