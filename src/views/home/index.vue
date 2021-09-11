@@ -1,13 +1,15 @@
 <!--
  * @Descripttion: 首页
  * @Date: 2021-06-29 21:54:24
- * @LastEditTime: 2021-08-08 17:45:35
+ * @LastEditTime: 2021-09-11 16:11:39
 -->
 <template>
+<div class="home">
   <top-nav />
   <banner />
   <icon-list />
   <recommended-music-list />
+</div>
 </template>
 
 <script lang="ts">
@@ -28,5 +30,8 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="less" scoped>
+.home{
+    padding: 0 0.25rem;
+}
 </style>

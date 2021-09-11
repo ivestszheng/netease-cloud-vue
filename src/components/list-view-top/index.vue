@@ -1,9 +1,10 @@
 <!--
  * @Descripttion:
  * @Date: 2021-08-23 22:54:07
- * @LastEditTime: 2021-09-11 14:25:57
+ * @LastEditTime: 2021-09-11 16:17:54
 -->
 <template>
+<div class="container">
   <div class="listViewTop">
     <img class="bg" :src="playlist.coverImgUrl" />
     <div class="left">
@@ -33,8 +34,7 @@
     </div>
     <div class="content-right">
       <h3>{{ playlist.name }}</h3>
-      <!-- 不加 v-if playlist 里还没有 creator 这个属性 -->
-      <div class="author" v-if="playlist.creator">
+      <div class="author">
         <img :src="playlist.creator.avatarUrl" class="header" />
         <span>{{ playlist.creator.nickname }}</span>
       </div>
@@ -69,6 +69,7 @@
       <span>多选</span>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -94,6 +95,8 @@ export default {
   height: 0.5rem;
   fill: #fff;
 }
+.container{
+      padding: 0 0.25rem;
 .listViewTop {
   display: flex;
   justify-content: space-between;
@@ -124,6 +127,7 @@ export default {
       margin-right: 0.5rem;
     }
   }
+}
 }
 .content {
   display: flex;
@@ -193,6 +197,7 @@ export default {
 .iconList {
   display: flex;
   justify-content: space-around;
+  margin-bottom: .5rem;
   .iconItem {
     display: flex;
     flex-direction: column;

@@ -1,11 +1,12 @@
 <!--
  * @Descripttion: 歌单详情
  * @Date: 2021-08-22 23:27:56
- * @LastEditTime: 2021-09-11 13:54:33
+ * @LastEditTime: 2021-09-11 14:39:12
 -->
 <template>
   <div class="listView">
     <list-view-top :playlist="playlist" />
+    <play-list :playlist="playlist" />
   </div>
 </template>
 
@@ -13,12 +14,13 @@
 import { onMounted, reactive, toRefs } from 'vue'
 import { getMusicListDetail } from '@/utils/api'
 import { useRoute } from 'vue-router'
-import ListViewTop from '@/components/list-view-top/index.vue'
+import listViewTop from '@/components/list-view-top/index.vue'
+import playList from '@/components/play-list/index.vue'
 
 export default {
   setup() {
     const route = useRoute()
-    let state = reactive({ list: [], playlist: {} })
+    let state = reactive({ list: [], playlist: {creator:[],tracks:[]} })
     let id = route.query.id
     onMounted(async () => {
       let res = await getMusicListDetail(id)
@@ -28,7 +30,8 @@ export default {
       return {...toRefs(state)}
   },
   components: {
-    ListViewTop,
+    listViewTop,
+    playList
   },
 }
 </script>

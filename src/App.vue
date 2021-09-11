@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-06-29 21:54:24
- * @LastEditTime: 2021-09-11 13:35:29
+ * @LastEditTime: 2021-09-11 15:48:40
 -->
 <template>
   <router-view />
@@ -20,11 +20,10 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
-  color: #2c3e50;
-  padding: 0 0.25rem;
+  color: #000;
 }
 a{
-  color: #2C3E50;
+  color: #000;
   text-decoration: none;
 }
 </style>
