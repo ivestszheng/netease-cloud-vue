@@ -1,3 +1,8 @@
+/*
+ * @Descripttion: 
+ * @Date: 2021-06-29 21:54:24
+ * @LastEditTime: 2021-09-11 13:40:04
+ */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable linebreak-style */
@@ -27,6 +32,7 @@ export default defineConfig({
   },
   base: './', // 设置打包路径
   server: {
+    host: '0.0.0.0',
     port: 4000, // 设置服务启动端口号
     open: true, // 设置服务启动时是否自动打开浏览器
     cors: true, // 允许跨域

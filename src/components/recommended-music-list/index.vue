@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 推荐歌单
  * @Date: 2021-08-08 17:44:07
- * @LastEditTime: 2021-08-22 23:34:06
+ * @LastEditTime: 2021-09-11 14:14:57
 -->
 <template>
   <div>
@@ -116,7 +116,6 @@ export default {
       top: 0.1rem;
       right: 0.1rem;
       color: #fff;
-      background: rgba(0, 0, 0, 0.4);
       border-radius: 0.2rem;
       padding: 0 0.1rem;
       display: flex;

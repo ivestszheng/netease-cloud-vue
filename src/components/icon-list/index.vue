@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 图标列表组件
  * @Date: 2021-08-08 14:26:16
- * @LastEditTime: 2021-08-12 00:07:23
+ * @LastEditTime: 2021-09-11 13:41:42
 -->
 <template>
   <div class="iconList">
@@ -26,7 +26,6 @@ export default {
   },
   mounted() {
     getHomeList().then((res:any) => {
-      console.log('ressssss',res);
       if (res.status == 200) {
         this.iconList = res.data.data
       }
@@ -45,6 +44,7 @@ export default {
   height: 1.1rem;
   border-bottom: 1px solid rgba(185, 185, 185, 0.4);
   margin-bottom: 0.15rem;
+  text-align: center;
   .iconItem {
     margin-right: 0.4rem;
     display: flex;

@@ -1,13 +1,13 @@
 <!--
  * @Descripttion:
  * @Date: 2021-08-23 22:54:07
- * @LastEditTime: 2021-09-09 23:57:06
+ * @LastEditTime: 2021-09-11 14:25:57
 -->
 <template>
   <div class="listViewTop">
     <img class="bg" :src="playlist.coverImgUrl" />
     <div class="left">
-      <svg class="icon" aria-hidden="true">
+      <svg class="icon" aria-hidden="true" @click="$router.push('/')">
         <use xlink:href="#icon-arrowLeft" />
       </svg>
       <div class="title">歌单</div>
@@ -31,16 +31,49 @@
         {{ changeVal(playlist.playCount) }}
       </div>
     </div>
-    <div class="content-right"></div>
+    <div class="content-right">
+      <h3>{{ playlist.name }}</h3>
+      <!-- 不加 v-if playlist 里还没有 creator 这个属性 -->
+      <div class="author" v-if="playlist.creator">
+        <img :src="playlist.creator.avatarUrl" class="header" />
+        <span>{{ playlist.creator.nickname }}</span>
+      </div>
+      <div class="description">
+        {{ playlist.description }}
+      </div>
+    </div>
+  </div>
+  <div class="iconList">
+    <div class="iconItem">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-pinglun"></use>
+      </svg>
+      <span>{{ playlist.commentCount }}</span>
+    </div>
+    <div class="iconItem">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-fenxiang"></use>
+      </svg>
+      <span>{{ playlist.shareCount }}</span>
+    </div>
+    <div class="iconItem">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-iconfontzhizuobiaozhun023146"></use>
+      </svg>
+      <span>下载</span>
+    </div>
+    <div class="iconItem">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-show_duoxuan"></use>
+      </svg>
+      <span>多选</span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   props: ['playlist'],
-  mounted() {
-    console.log('12312321', this.playlist);
-  },
   methods: {
     changeVal(num) {
       let res = 0
@@ -95,11 +128,16 @@ export default {
 .content {
   display: flex;
   justify-content: space-between;
+  padding: 0.4rem 0;
+  span {
+    color: #fff;
+    font-size: 0.26rem;
+  }
   .content-left {
     position: relative;
     img {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 2.8rem;
+      height: 2.8rem;
       border-radius: 0.1rem;
     }
     .count {
@@ -108,7 +146,6 @@ export default {
       top: 0.1rem;
       right: 0.1rem;
       color: #fff;
-      background: rgba(0, 0, 0, 0.4);
       border-radius: 0.2rem;
       padding: 0 0.1rem;
       display: flex;
@@ -121,6 +158,51 @@ export default {
         width: 0.24rem;
       }
     }
+  }
+  .content-right {
+    width: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    h3 {
+      color: #fff;
+      margin: 0;
+    }
+    .author {
+      display: flex;
+      align-items: center;
+      margin: 0.2rem 0;
+      img.header {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 0.3rem;
+        margin-right: 0.2rem;
+      }
+    }
+    .description {
+      font-size: 0.24rem;
+      color: #ccc;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+.iconList {
+  display: flex;
+  justify-content: space-around;
+  .iconItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #ccc;
+    font-size: 1px;
+  }
+  .icon{
+    margin-bottom: .2rem;
   }
 }
 </style>
