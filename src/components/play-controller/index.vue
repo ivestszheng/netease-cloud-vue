@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-12 21:34:13
+ * @LastEditTime: 2021-09-12 21:50:36
 -->
 <template>
   <div class="playController">
@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       paused: true,
-      isShow: false
+      isShow: true
     }
   },
   computed: {
