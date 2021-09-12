@@ -1,14 +1,14 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-12 16:29:22
+ * @LastEditTime: 2021-09-12 16:45:57
 -->
 <template>
   <div class="playController">
     <div class="left">
       <img :src="playlist[playCurrentIndex].al.picUrl" />
       <div class="content">
-        <div class="title">{{ playlist[playCurrentIndex].al.name }}</div>
+        <div class="title">{{ playlist[playCurrentIndex].name }}</div>
         <div class="tips">横滑可以切换上下首哦</div>
       </div>
     </div>
