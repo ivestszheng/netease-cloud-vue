@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-12 17:02:47
- * @LastEditTime: 2021-09-12 22:46:10
+ * @LastEditTime: 2021-09-12 23:14:02
 -->
 <template>
   <div class="playMusic">
@@ -19,12 +19,14 @@
         </svg>
       </div>
     </div>
-    <div class="playContent">
+    <div class="playContent" v-show="!isLyric" @click="isLyric=!isLyric">
       <img class="needle" :class="{active: !paused}" src="@/assets/imgs/needle.png" />
       <img class="disc" src="@/assets/imgs/disc.png" />
       <img class="playImg" :src="playDetail.al.picUrl" />
     </div>
-    <div class="playLyric"></div>
+    <div class="playLyric" v-show="isLyric" @click="isLyric=!isLyric">
+      {{lyric}}
+    </div>
     <div class="progeress"></div>
     <div class="playFooter">
       <svg class="icon" aria-hidden="true">
@@ -50,12 +52,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'playMusic',
   props: ['playDetail','paused','play'],
   data() {
-    return {}
-  }
+    return {
+      isLyric: true
+    }
+  },
+    computed: {
+    ...mapState(['lyric']),
+  },
 }
 </script>
 
@@ -153,6 +162,13 @@ export default {
       height: .5rem;
       padding: .25rem;
     }
+  }
+  .playLyric{
+     position: absolute;
+    width: 100vw;
+    height: 7.5rem;
+    left: 0;
+    top: 1.2rem;
   }
 }
 </style>

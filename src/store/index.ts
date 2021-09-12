@@ -1,9 +1,10 @@
 /*
  * @Descripttion:
  * @Date: 2021-09-11 22:07:26
- * @LastEditTime: 2021-09-12 16:26:19
+ * @LastEditTime: 2021-09-12 23:31:44
  */
 import { createStore } from 'vuex'
+import {getLyric} from '@/utils/api'
 
 const defaultState = {
   playlist: [{
@@ -18,6 +19,7 @@ const defaultState = {
     }
   }],
   playCurrentIndex: 0,
+  lyric: {}
 }
 
 // Create a new store instance.
@@ -31,8 +33,16 @@ export default createStore({
     },
     setPlayIndex(state: typeof defaultState,value){
       state.playCurrentIndex = value
+    },
+    setLyric(state: typeof defaultState,value){
+      state.lyric = value
     }
   },
-  actions: {},
+  actions: {
+    async reqLyric(content,payload){
+      let result = await getLyric(payload.id)
+      content.commit('setLyric',result.data.lrc.lyric)
+    }
+  },
   modules: {}
 })

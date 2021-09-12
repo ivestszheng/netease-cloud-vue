@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-12 22:41:03
+ * @LastEditTime: 2021-09-12 23:34:07
 -->
 <template>
   <div class="playController">
@@ -55,6 +55,12 @@ export default {
   computed: {
     ...mapState(['playlist', 'playCurrentIndex']),
   },
+  mounted() {
+    this.$store.dispatch('reqLyric',{id:this.playlist[this.playCurrentIndex].id})
+  },
+  updated() {
+    console.log();
+  },
   methods: {
     play() {
       if (this.$refs.audio.paused) {
@@ -65,10 +71,7 @@ export default {
         this.paused = true
       }
     }
-  },
-  mounted() {
-    // this.$refs.audio.play()
-  },
+  }
 }
 </script>
 
