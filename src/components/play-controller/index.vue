@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-12 11:42:23
+ * @LastEditTime: 2021-09-12 15:54:31
 -->
 <template>
   <div class="playController">
@@ -13,13 +13,20 @@
       </div>
     </div>
     <div class="right">
-      <svg class="icon" aria-hidden="true" @click="$router.push('/')">
+      <svg v-show="paused" class="icon" aria-hidden="true" @click="play">
         <use xlink:href="#icon-bofang" />
       </svg>
-      <svg class="icon" aria-hidden="true" @click="$router.push('/')">
+      <svg v-show="!paused" class="icon" aria-hidden="true" @click="play">
+        <use xlink:href="#icon-zanting" />
+      </svg>
+      <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-liebiao1" />
       </svg>
     </div>
+    <audio
+      ref="audio"
+      :src="`https://music.163.com/song/media/outer/url?id=${playlist[playCurrentIndex].id}.mp3`"
+    ></audio>
   </div>
 </template>
 
@@ -28,6 +35,12 @@ import $store from '@/store/index'
 import { mapState } from 'vuex'
 
 export default {
+  name: 'play-controller',
+  data() {
+    return {
+      paused: true
+    }
+  },
   computed: {
     // 一用 mapState 就报 Cannot read property 'state' of undefined
     // ...mapState(['playlist','playCurrentIndex']),
@@ -37,6 +50,20 @@ export default {
     playCurrentIndex() {
       return $store.state.playCurrentIndex
     }
+  },
+  methods: {
+    play() {
+      if (this.$refs.audio.paused) {
+        this.$refs.audio.play()
+        this.paused = false
+      } else {
+        this.$refs.audio.pause()
+        this.paused = true
+      }
+    }
+  },
+  mounted() {
+    // this.$refs.audio.play()
   },
 }
 </script>
@@ -56,23 +83,23 @@ export default {
   border-top: 1px solid #ccc;
   .left {
     display: flex;
-    padding-left: .1rem;
-    img{
-      width: .8rem;
-      height: .8rem;
+    padding-left: 0.1rem;
+    img {
+      width: 0.8rem;
+      height: 0.8rem;
       border-radius: 50%;
-      margin-right: .25rem;
+      margin-right: 0.25rem;
     }
   }
-  .right{
-        padding-right: .1rem;
-    .icon{
-      width: .75rem;
-      height: .75rem;
+  .right {
+    padding-right: 0.1rem;
+    .icon {
+      width: 0.75rem;
+      height: 0.75rem;
       fill: #ccc;
     }
-    .icon:last-child{
-      margin-left: .25rem;
+    .icon:last-child {
+      margin-left: 0.25rem;
     }
   }
 }
