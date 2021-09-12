@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-08-23 22:54:07
- * @LastEditTime: 2021-09-11 17:06:47
+ * @LastEditTime: 2021-09-12 11:32:58
 -->
 <template>
 <div class="container">
@@ -92,9 +92,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.icon {
-  width: 0.5rem;
-  height: 0.5rem;
+.icon{
   fill: #fff;
 }
 .container{

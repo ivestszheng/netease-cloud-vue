@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 14:31:10
- * @LastEditTime: 2021-09-11 17:00:29
+ * @LastEditTime: 2021-09-12 11:10:10
 -->
 <template>
   <div class="playlist">
@@ -59,10 +59,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.icon {
-  width: 0.5rem;
-  height: 0.5rem;
-}
 .playlist-top {
   display: flex;
   justify-content: space-between;
@@ -74,10 +70,6 @@ export default {
   .left {
     display: flex;
     align-items: center;
-    .icon {
-      width: 0.5rem;
-      height: 0.5rem;
-    }
     .play {
       margin-right: 0.25rem;
     }

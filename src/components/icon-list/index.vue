@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 图标列表组件
  * @Date: 2021-08-08 14:26:16
- * @LastEditTime: 2021-09-11 13:41:42
+ * @LastEditTime: 2021-09-11 21:38:30
 -->
 <template>
   <div class="iconList">
@@ -45,11 +45,13 @@ export default {
   border-bottom: 1px solid rgba(185, 185, 185, 0.4);
   margin-bottom: 0.15rem;
   text-align: center;
+  height: 1.5rem;
   .iconItem {
     margin-right: 0.4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     .icon {
       width: 0.8rem;
       height: 0.8rem;

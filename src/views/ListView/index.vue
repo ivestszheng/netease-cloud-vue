@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 歌单详情
  * @Date: 2021-08-22 23:27:56
- * @LastEditTime: 2021-09-11 14:39:12
+ * @LastEditTime: 2021-09-12 11:14:18
 -->
 <template>
   <div class="listView">
@@ -16,7 +16,7 @@ import { getMusicListDetail } from '@/utils/api'
 import { useRoute } from 'vue-router'
 import listViewTop from '@/components/list-view-top/index.vue'
 import playList from '@/components/play-list/index.vue'
-
+import store from '@/store/index'
 export default {
   setup() {
     const route = useRoute()
@@ -25,7 +25,7 @@ export default {
     onMounted(async () => {
       let res = await getMusicListDetail(id)
       state.playlist = res.data.playlist
-      console.log(res)
+      store.commit('setPlaylist',state.playlist.tracks)
     })
       return {...toRefs(state)}
   },

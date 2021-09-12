@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 头部导航
  * @Date: 2021-08-01 22:39:21
- * @LastEditTime: 2021-08-08 17:09:44
+ * @LastEditTime: 2021-09-12 11:10:17
 -->
 <template>
     <div class="topNav">
@@ -37,10 +37,6 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .icon{
-        width: .5rem;
-        height: .5rem;
-    }
     .topCenter{
         width: 4.5rem;
         display: flex;
