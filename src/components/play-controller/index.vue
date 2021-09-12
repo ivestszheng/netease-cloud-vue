@@ -1,11 +1,11 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-12 16:45:57
+ * @LastEditTime: 2021-09-12 19:05:29
 -->
 <template>
   <div class="playController">
-    <div class="left">
+    <div class="left" @click="isShow=!isShow">
       <img :src="playlist[playCurrentIndex].al.picUrl" />
       <div class="content">
         <div class="title">{{ playlist[playCurrentIndex].name }}</div>
@@ -23,6 +23,7 @@
         <use xlink:href="#icon-liebiao1" />
       </svg>
     </div>
+    <play-music v-show="isShow" :playDetail="playlist[playCurrentIndex]" />
     <audio
       ref="audio"
       :src="`https://music.163.com/song/media/outer/url?id=${playlist[playCurrentIndex].id}.mp3`"
@@ -32,12 +33,17 @@
 
 <script>
 import { mapState } from 'vuex'
+import playMusic from '@/components/play-music/index.vue'
 
 export default {
   name: 'play-controller',
+  components: {
+    playMusic
+  },
   data() {
     return {
-      paused: true
+      paused: true,
+      isShow: false
     }
   },
   computed: {
