@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-12 19:05:29
+ * @LastEditTime: 2021-09-12 21:34:13
 -->
 <template>
   <div class="playController">
@@ -23,7 +23,7 @@
         <use xlink:href="#icon-liebiao1" />
       </svg>
     </div>
-    <play-music v-show="isShow" :playDetail="playlist[playCurrentIndex]" />
+    <play-music @back="isShow=!isShow" v-show="isShow" :playDetail="playlist[playCurrentIndex]" />
     <audio
       ref="audio"
       :src="`https://music.163.com/song/media/outer/url?id=${playlist[playCurrentIndex].id}.mp3`"
