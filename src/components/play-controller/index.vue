@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-12 15:54:31
+ * @LastEditTime: 2021-09-12 16:29:22
 -->
 <template>
   <div class="playController">
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import $store from '@/store/index'
 import { mapState } from 'vuex'
 
 export default {
@@ -42,14 +41,7 @@ export default {
     }
   },
   computed: {
-    // 一用 mapState 就报 Cannot read property 'state' of undefined
-    // ...mapState(['playlist','playCurrentIndex']),
-    playlist() {
-      return $store.state.playlist
-    },
-    playCurrentIndex() {
-      return $store.state.playCurrentIndex
-    }
+    ...mapState(['playlist','playCurrentIndex']),
   },
   methods: {
     play() {

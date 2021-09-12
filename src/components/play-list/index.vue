@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 14:31:10
- * @LastEditTime: 2021-09-12 15:52:08
+ * @LastEditTime: 2021-09-12 16:20:49
 -->
 <template>
   <div class="playlist">
@@ -27,10 +27,10 @@
           </div>
         </div>
         <div class="right">
-          <svg class="icon" aria-hidden="true" @click="$router.push('/')">
+          <svg class="icon" aria-hidden="true" @click="setPlayIndex(i)">
             <use xlink:href="#icon-shipinbofangyingpian" />
           </svg>
-          <svg class="icon" aria-hidden="true" @click="$router.push('/')">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-caozuo" />
           </svg>
         </div>
@@ -40,9 +40,12 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
+
 export default {
   props: ['playlist'],
   methods: {
+    ...mapMutations(['setPlayIndex']),
     changeVal(num) {
       let res = 0
       if (num >= 100000000) {
