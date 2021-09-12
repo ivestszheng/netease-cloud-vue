@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-12 17:02:47
- * @LastEditTime: 2021-09-12 22:06:13
+ * @LastEditTime: 2021-09-12 22:46:10
 -->
 <template>
   <div class="playMusic">
@@ -12,7 +12,7 @@
           <use xlink:href="#icon-arrowLeft" />
         </svg>
       </div>
-      <marquee  scrollamount="2">{{ playDetail.name }}</marquee>
+      <marquee scrollamount="2">{{ playDetail.name }}</marquee>
       <div class="share">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-fenxiang" />
@@ -20,20 +20,39 @@
       </div>
     </div>
     <div class="playContent">
-      <img class="needle" src="@/assets/imgs/needle.png" />
+      <img class="needle" :class="{active: !paused}" src="@/assets/imgs/needle.png" />
       <img class="disc" src="@/assets/imgs/disc.png" />
       <img class="playImg" :src="playDetail.al.picUrl" />
     </div>
     <div class="playLyric"></div>
     <div class="progeress"></div>
-    <div class="playFooter"></div>
+    <div class="playFooter">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-xunhuan" />
+      </svg>
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-shangyishoushangyige" />
+      </svg>
+      <svg v-show="paused" class="icon play" aria-hidden="true" @click="play">
+        <use xlink:href="#icon-bofang" />
+      </svg>
+      <svg v-show="!paused" class="icon paused" aria-hidden="true" @click="play">
+        <use xlink:href="#icon-zanting" />
+      </svg>
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-xiayigexiayishou" />
+      </svg>
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-liebiao1" />
+      </svg>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'playMusic',
-  props: ['playDetail'],
+  props: ['playDetail','paused','play'],
   data() {
     return {}
   }
@@ -41,6 +60,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.icon {
+  fill: #fff;
+}
 .playMusic {
   position: fixed;
   left: 0;
@@ -68,9 +90,6 @@ export default {
     left: 0;
     top: 0;
     color: #fff;
-    .icon {
-      fill: #fff;
-    }
     .back {
       padding-left: 0.4rem;
     }
@@ -98,7 +117,7 @@ export default {
       transition: all 1s;
       z-index: 10;
     }
-    .needle .active {
+    .active {
       transform: rotate(8deg);
     }
     .disc {
@@ -115,6 +134,24 @@ export default {
       position: absolute;
       left: calc(50% - 1.75rem);
       top: 3.5rem;
+    }
+  }
+  .playFooter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 1.2rem;
+    bottom: 0;
+    .play{
+            width: 1rem;
+      height: 1rem;
+    }
+    .paused {
+      width: .5rem;
+      height: .5rem;
+      padding: .25rem;
     }
   }
 }

@@ -1,11 +1,11 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-12 21:50:36
+ * @LastEditTime: 2021-09-12 22:41:03
 -->
 <template>
   <div class="playController">
-    <div class="left" @click="isShow=!isShow">
+    <div class="left" @click="isShow = !isShow">
       <img :src="playlist[playCurrentIndex].al.picUrl" />
       <div class="content">
         <div class="title">{{ playlist[playCurrentIndex].name }}</div>
@@ -16,14 +16,20 @@
       <svg v-show="paused" class="icon" aria-hidden="true" @click="play">
         <use xlink:href="#icon-bofang" />
       </svg>
-      <svg v-show="!paused" class="icon" aria-hidden="true" @click="play">
+      <svg v-show="!paused" class="icon paused" aria-hidden="true" @click="play">
         <use xlink:href="#icon-zanting" />
       </svg>
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-liebiao1" />
       </svg>
     </div>
-    <play-music @back="isShow=!isShow" v-show="isShow" :playDetail="playlist[playCurrentIndex]" />
+    <play-music
+      @back="isShow = !isShow"
+      :play="play"
+      :paused="paused"
+      v-show="isShow"
+      :playDetail="playlist[playCurrentIndex]"
+    />
     <audio
       ref="audio"
       :src="`https://music.163.com/song/media/outer/url?id=${playlist[playCurrentIndex].id}.mp3`"
@@ -47,7 +53,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['playlist','playCurrentIndex']),
+    ...mapState(['playlist', 'playCurrentIndex']),
   },
   methods: {
     play() {
@@ -90,11 +96,18 @@ export default {
     }
   }
   .right {
+    display: flex;
+    align-items: center;
     padding-right: 0.1rem;
     .icon {
       width: 0.75rem;
       height: 0.75rem;
       fill: #ccc;
+    }
+    .paused {
+      width: 0.5rem;
+      height: 0.5rem;
+      margin-right: .15rem;
     }
     .icon:last-child {
       margin-left: 0.25rem;
