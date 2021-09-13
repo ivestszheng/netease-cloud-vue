@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-12 17:02:47
- * @LastEditTime: 2021-09-12 23:14:02
+ * @LastEditTime: 2021-09-13 14:52:19
 -->
 <template>
   <div class="playMusic">
@@ -19,13 +19,13 @@
         </svg>
       </div>
     </div>
-    <div class="playContent" v-show="!isLyric" @click="isLyric=!isLyric">
-      <img class="needle" :class="{active: !paused}" src="@/assets/imgs/needle.png" />
+    <div class="playContent" v-show="!isLyric" @click="isLyric = !isLyric">
+      <img class="needle" :class="{ active: !paused }" src="@/assets/imgs/needle.png" />
       <img class="disc" src="@/assets/imgs/disc.png" />
       <img class="playImg" :src="playDetail.al.picUrl" />
     </div>
-    <div class="playLyric" v-show="isLyric" @click="isLyric=!isLyric">
-      {{lyric}}
+    <div class="playLyric" v-show="isLyric" @click="isLyric = !isLyric">
+      <p class="active" v-for="(item, i) in $store.getters.lyricList" :key="i">{{ item.lyric }}</p>
     </div>
     <div class="progeress"></div>
     <div class="playFooter">
@@ -56,14 +56,14 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'playMusic',
-  props: ['playDetail','paused','play'],
+  props: ['playDetail', 'paused', 'play'],
   data() {
     return {
       isLyric: true
     }
   },
-    computed: {
-    ...mapState(['lyric']),
+  computed: {
+    ...mapState(['lyric'])
   },
 }
 </script>
@@ -153,22 +153,29 @@ export default {
     width: 100vw;
     height: 1.2rem;
     bottom: 0;
-    .play{
-            width: 1rem;
+    .play {
+      width: 1rem;
       height: 1rem;
     }
     .paused {
-      width: .5rem;
-      height: .5rem;
-      padding: .25rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      padding: 0.25rem;
     }
   }
-  .playLyric{
-     position: absolute;
+  .playLyric {
+    position: absolute;
     width: 100vw;
-    height: 7.5rem;
+    height: calc(100% - 2.4rem);
     left: 0;
     top: 1.2rem;
+    overflow: scroll;
+    text-align: center;
+    color: #fff;
+    padding: .2rem 0;
+    .active{
+      color: red;
+    }
   }
 }
 </style>
