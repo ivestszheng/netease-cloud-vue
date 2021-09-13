@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-13 22:36:39
+ * @LastEditTime: 2021-09-13 23:22:46
 -->
 <template>
   <div class="playController">
@@ -56,6 +56,9 @@ export default {
     ...mapState(['playlist', 'playCurrentIndex']),
   },
   mounted() {
+    this.$store.dispatch('reqLyric', { id: this.playlist[this.playCurrentIndex].id })
+  },
+  updated(){
     this.$store.dispatch('reqLyric', { id: this.playlist[this.playCurrentIndex].id })
   },
   methods: {

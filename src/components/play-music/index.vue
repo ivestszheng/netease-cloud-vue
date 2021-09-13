@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-12 17:02:47
- * @LastEditTime: 2021-09-13 22:59:24
+ * @LastEditTime: 2021-09-13 23:20:41
 -->
 <template>
   <div class="playMusic">
@@ -42,7 +42,7 @@
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-xunhuan" />
       </svg>
-      <svg class="icon" aria-hidden="true">
+      <svg class="icon" aria-hidden="true" @click="goPlay(-1)">
         <use xlink:href="#icon-shangyishoushangyige" />
       </svg>
       <svg v-show="paused" class="icon play" aria-hidden="true" @click="play">
@@ -51,7 +51,7 @@
       <svg v-show="!paused" class="icon paused" aria-hidden="true" @click="play">
         <use xlink:href="#icon-zanting" />
       </svg>
-      <svg class="icon" aria-hidden="true">
+      <svg class="icon" aria-hidden="true" @click="goPlay(1)">
         <use xlink:href="#icon-xiayigexiayishou" />
       </svg>
       <svg class="icon" aria-hidden="true">
@@ -73,7 +73,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['lyric','currentTime'])
+    ...mapState(['playlist','playCurrentIndex','lyric','currentTime'])
   },
   watch:{
     currentTime(newVal){
@@ -81,7 +81,18 @@ export default {
       let offsetTop = p.offsetTop
       this.$refs.playLyric.scrollTop = offsetTop
     }
-  }
+  },
+  methods: {
+    goPlay(num){
+      let index = this.playCurrentIndex + num
+      if (index<0) {
+        index = this.playlist.length - 1
+      }else if(index == this.playlist.length){
+        index = 0
+      }
+      this.$store.commit('setPlayIndex',index)
+    }
+  },
 }
 </script>
 
