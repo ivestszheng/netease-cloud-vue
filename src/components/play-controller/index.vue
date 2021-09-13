@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-12 23:34:07
+ * @LastEditTime: 2021-09-13 22:36:39
 -->
 <template>
   <div class="playController">
@@ -56,20 +56,24 @@ export default {
     ...mapState(['playlist', 'playCurrentIndex']),
   },
   mounted() {
-    this.$store.dispatch('reqLyric',{id:this.playlist[this.playCurrentIndex].id})
-  },
-  updated() {
-    console.log();
+    this.$store.dispatch('reqLyric', { id: this.playlist[this.playCurrentIndex].id })
   },
   methods: {
     play() {
       if (this.$refs.audio.paused) {
         this.$refs.audio.play()
         this.paused = false
+        this.updateTime()
       } else {
         this.$refs.audio.pause()
         this.paused = true
+        clearInterval(this.$store.state.id)
       }
+    },
+    updateTime() {
+      this.$store.state.id = setInterval(() => {
+        this.$store.commit('setCurrentTime', this.$refs.audio.currentTime)
+      }, 1000)
     }
   }
 }
@@ -110,7 +114,7 @@ export default {
     .paused {
       width: 0.5rem;
       height: 0.5rem;
-      margin-right: .15rem;
+      margin-right: 0.15rem;
     }
     .icon:last-child {
       margin-left: 0.25rem;

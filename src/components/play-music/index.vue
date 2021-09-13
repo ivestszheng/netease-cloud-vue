@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-12 17:02:47
- * @LastEditTime: 2021-09-13 14:52:19
+ * @LastEditTime: 2021-09-13 22:59:24
 -->
 <template>
   <div class="playMusic">
@@ -24,8 +24,18 @@
       <img class="disc" src="@/assets/imgs/disc.png" />
       <img class="playImg" :src="playDetail.al.picUrl" />
     </div>
-    <div class="playLyric" v-show="isLyric" @click="isLyric = !isLyric">
-      <p class="active" v-for="(item, i) in $store.getters.lyricList" :key="i">{{ item.lyric }}</p>
+    <div class="playLyric" v-show="isLyric" @click="isLyric = !isLyric" ref="playLyric">
+      <p
+        :class="{
+          active:
+            (currentTime * 1000 >= item.pre &&
+            currentTime * 1000 < item.time)
+        }"
+        v-for="(item, i) in $store.getters.lyricList"
+        :key="i"
+      >
+        {{ item.lyric }}
+      </p>
     </div>
     <div class="progeress"></div>
     <div class="playFooter">
@@ -63,8 +73,15 @@ export default {
     }
   },
   computed: {
-    ...mapState(['lyric'])
+    ...mapState(['lyric','currentTime'])
   },
+  watch:{
+    currentTime(newVal){
+      let p = document.querySelector('p.active')
+      let offsetTop = p.offsetTop
+      this.$refs.playLyric.scrollTop = offsetTop
+    }
+  }
 }
 </script>
 
@@ -166,14 +183,14 @@ export default {
   .playLyric {
     position: absolute;
     width: 100vw;
-    height: calc(100% - 2.4rem);
+    height: calc(100% - 2.6rem);
     left: 0;
     top: 1.2rem;
     overflow: scroll;
     text-align: center;
     color: #fff;
-    padding: .2rem 0;
-    .active{
+    padding: 0.2rem 0;
+    .active {
       color: red;
     }
   }
