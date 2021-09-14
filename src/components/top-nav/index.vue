@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 头部导航
  * @Date: 2021-08-01 22:39:21
- * @LastEditTime: 2021-09-12 11:10:17
+ * @LastEditTime: 2021-09-14 22:02:27
 -->
 <template>
     <div class="topNav">
@@ -16,7 +16,7 @@
             <span class="navBtn">云村</span>
             <span class="navBtn">视频</span>
         </div>
-        <div class="topRight">
+        <div class="topRight" @click="$router.push('/searchview')">
             <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-sousuo" />
             </svg>

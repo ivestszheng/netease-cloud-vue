@@ -1,7 +1,7 @@
 <!--
  * @Descripttion: 推荐歌单
  * @Date: 2021-08-08 17:44:07
- * @LastEditTime: 2021-09-11 17:06:39
+ * @LastEditTime: 2021-09-14 22:00:16
 -->
 <template>
   <div>
@@ -10,7 +10,7 @@
       <span class="more">更多 ></span>
     </div>
     <div class="items">
-      <router-link :to="{path: '/listView',query:{id: item['id']}}" class="item" v-for="(item, i) in state.recommendedMusicList" :key="i">
+      <router-link :to="{path: '/listview',query:{id: item['id']}}" class="item" v-for="(item, i) in state.recommendedMusicList" :key="i">
         <img :src="item['picUrl']" :alt="item['name']" />
         <div class="title">{{ item['name'] }}</div>
         <div class="count">

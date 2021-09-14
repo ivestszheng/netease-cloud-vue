@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       paused: true,
-      isShow: true
+      isShow: false
     }
   },
   computed: {
