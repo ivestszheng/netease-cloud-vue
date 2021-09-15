@@ -1,47 +1,49 @@
 <!--
  * @Descripttion:
  * @Date: 2021-08-23 22:54:07
- * @LastEditTime: 2021-09-14 23:05:08
+ * @LastEditTime: 2021-09-15 22:56:09
 -->
 <template>
-<div class="container">
-  <div class="listViewTop">
-    <div class="left">
-      <svg class="icon" aria-hidden="true" @click="$router.push('/')">
-        <use xlink:href="#icon-arrowLeft" />
-      </svg>
-    </div>
-    <div class="right">
-      <van-search v-model="searchKeyword" :placeholder="placeholder" @search="saveKeyword" />
-    </div>
-  </div>
-  <div class="history">
-    <div class="historyLeft">
-      历史
-    </div>
-    <div class="historyRight">
-      <div class="keywordItem" v-for="(item,i) in keywordList" :key="i">
-        {{item}}
+  <div class="searchTop">
+    <div class="searchTopNav">
+      <div class="left">
+        <svg class="icon" aria-hidden="true" @click="$router.go(-1)">
+          <use xlink:href="#icon-arrowLeft" />
+        </svg>
+      </div>
+      <div class="right">
+        <van-search
+          v-model="searchKeyword"
+          :placeholder="placeholder"
+          @search="saveKeyword"
+        />
       </div>
     </div>
+    <div class="history">
+      <div class="historyLeft">历史记录</div>
+    </div>
   </div>
-</div>
+  <div class="historyContent">
+    <div class="keywordItem" v-for="(item, i) in keywordList" :key="i">
+      {{ item }}
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  data(){
+  data() {
     return {
       placeholder: '陈奕迅',
-      keywordList:[],
+      keywordList: [],
       searchKeyword: ''
     }
   },
   beforeMount() {
-    this.keywordList = localStorage.keywordList?JSON.parse(localStorage.keywordList):[]
+    this.keywordList = localStorage.keywordList ? JSON.parse(localStorage.keywordList) : []
   },
   methods: {
-    saveKeyword(){
+    saveKeyword() {
       this.keywordList.push(this.searchKeyword)
       localStorage.keywordList = JSON.stringify(this.keywordList)
     }
@@ -50,122 +52,57 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.icon{
-  fill: #fff;
-}
-.container{
-      padding: 0 0.25rem;
-.listViewTop {
-  display: flex;
-  justify-content: space-between;
-  height: 1.2rem;
-  align-items: center;
-  font-size: 0.35rem;
-  .bg {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 7.5rem;
-    height: auto;
-    z-index: -1;
-    filter: blur(40px);
-  }
-  .left,
-  .right {
-    color: #fff;
+.searchTop {
+  width: 100vw;
+  padding: 0 0.4rem;
+  .searchTopNav {
     display: flex;
-  }
-  .left {
-    .title {
-      margin-left: 0.4rem;
-    }
-  }
-  .right {
-    .search {
-      margin-right: 0.5rem;
-    }
-  }
-}
-}
-.content {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.4rem 0;
-  span {
-    color: #fff;
-    font-size: 0.26rem;
-  }
-  .content-left {
-    position: relative;
-    img {
-      width: 2.8rem;
-      height: 2.8rem;
-      border-radius: 0.1rem;
-    }
-    .count {
-      position: absolute;
-      font-size: 0.24rem;
-      top: 0.1rem;
-      right: 0.1rem;
-      color: #fff;
-      border-radius: 0.2rem;
-      padding: 0 0.1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 0.25rem;
-      .icon {
-        fill: #fff; // SVG 要用属性 fill
-        height: 100%;
-        width: 0.24rem;
-      }
-    }
-  }
-  .content-right {
-    width: 3.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    h3 {
-      color: #fff;
-      margin: 0;
-    }
-    .author {
-      display: flex;
-      align-items: center;
-      margin: 0.2rem 0;
-      img.header {
-        width: 0.6rem;
-        height: 0.6rem;
-        border-radius: 0.3rem;
-        margin-right: 0.2rem;
-      }
-    }
-    .description {
-      font-size: 0.24rem;
-      color: #ccc;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-  }
-}
-.iconList {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: .5rem;
-  .iconItem {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    width: 100%;
+    height: 1.2rem;
     align-items: center;
-    color: #ccc;
-    font-size: 1px;
+    .icon {
+      width: 0.5rem;
+      height: 0.5rem;
+    }
+    .right {
+      width: 100%;
+      padding: 0 0.4rem 0 0;
+    }
   }
-  .icon{
-    margin-bottom: .2rem;
+  .history {
+    .historyLeft {
+      font-weight: 900;
+      margin-bottom: 0.25rem;
+      font-size: 14px;
+    }
   }
+}
+.historyContent {
+  display: flex;
+  margin-left: 0.4rem;
+  width: 100vw;
+  overflow: scroll;
+  .keywordItem {
+    margin-right: 0.25rem;
+    background: rgba(128, 128, 128, 0.1);
+    height: 0.5rem;
+    line-height: 0.5rem;
+    border-radius: 16px;
+    padding: 0 0.25rem;
+  }
+
+}
+  .keywordItem:last-child{
+    margin-right: .5rem;
+  }
+.historyContent::-webkit-scrollbar {
+  display: none;
+}
+:deep(.van-search__content) {
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+}
+:deep(.van-field__left-icon) {
+  display: none;
 }
 </style>

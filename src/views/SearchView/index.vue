@@ -1,11 +1,10 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-14 21:30:10
- * @LastEditTime: 2021-09-14 22:10:34
+ * @LastEditTime: 2021-09-15 21:41:19
 -->
 <template>
    <div id="searchPage">
-     123
      <search-top />
    </div>
 </template>

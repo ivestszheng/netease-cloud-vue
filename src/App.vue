@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-06-29 21:54:24
- * @LastEditTime: 2021-09-12 15:52:51
+ * @LastEditTime: 2021-09-15 22:52:29
 -->
 <template>
   <router-view />
@@ -27,6 +27,8 @@ export default defineComponent({
   /* text-align: center; */
   color: #000;
   margin-bottom: 1.2rem;
+  overflow-x: hidden;
+  overflow-y:auto;
 }
 a{
   color: #000;
