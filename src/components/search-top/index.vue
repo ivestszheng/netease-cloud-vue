@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-08-23 22:54:07
- * @LastEditTime: 2021-09-15 22:56:09
+ * @LastEditTime: 2021-09-16 08:40:49
 -->
 <template>
   <div class="searchTop">
@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     saveKeyword() {
-      this.keywordList.push(this.searchKeyword)
+      this.keywordList.unshift(this.searchKeyword)
       localStorage.keywordList = JSON.stringify(this.keywordList)
     }
   },
