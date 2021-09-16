@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 14:31:10
- * @LastEditTime: 2021-09-12 16:20:49
+ * @LastEditTime: 2021-09-16 22:39:37
 -->
 <template>
   <div class="playlist">
@@ -20,14 +20,14 @@
         <div class="left">
           <div class="index">{{ i + 1 }}</div>
           <div class="content">
-            <div class="title">{{ item.name }}</div>
+            <div class="title" @click="setPlayIndex(i)">{{ item.name }}</div>
             <div class="author">
               <span>{{ item.al.name }}</span>
             </div>
           </div>
         </div>
         <div class="right">
-          <svg class="icon" aria-hidden="true" @click="setPlayIndex(i)">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-shipinbofangyingpian" />
           </svg>
           <svg class="icon" aria-hidden="true">
@@ -105,8 +105,10 @@ export default {
     margin-bottom: 0.1rem;
     .left {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+          max-width: 5.5rem;
+    text-overflow: ellipsis;
       .index {
         width: 0.1rem;
         color: #ccc;
@@ -115,10 +117,18 @@ export default {
         margin-left: 0.4rem;
         .title {
           font-size: 0.325rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 5rem;
         }
         .author {
           font-size: 0.2rem;
           color: #ccc;
+          display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
         }
       }
     }

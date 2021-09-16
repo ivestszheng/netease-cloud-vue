@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-08-23 22:54:07
- * @LastEditTime: 2021-09-16 22:09:49
+ * @LastEditTime: 2021-09-16 22:35:24
 -->
 <template>
   <div class="searchTop">
@@ -181,8 +181,10 @@ export default {
     margin-bottom: 0.1rem;
     .left {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      max-width: 5.5rem;
+      text-overflow: ellipsis;
       .index {
         width: 0.1rem;
         color: #ccc;
@@ -191,10 +193,18 @@ export default {
         margin-left: 0.4rem;
         .title {
           font-size: 0.325rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 5rem;
         }
         .author {
           font-size: 0.2rem;
           color: #ccc;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+          overflow: hidden;
         }
       }
     }
