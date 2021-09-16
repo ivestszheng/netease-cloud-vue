@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-08-23 22:54:07
- * @LastEditTime: 2021-09-16 09:01:44
+ * @LastEditTime: 2021-09-16 15:14:06
 -->
 <template>
   <div class="searchTop">
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     saveKeyword() {
-      this.keywordList.unshift(this.searchKeyword)
+      this.keywordList.push(this.searchKeyword)
       localStorage.keywordList = JSON.stringify(this.keywordList)
     }
   },
@@ -83,6 +83,7 @@ export default {
   margin-left: 0.4rem;
   width: 100vw;
   overflow: scroll;
+  direction: rtl;
   .keywordItem {
     margin-right: 0.25rem;
     background: rgba(128, 128, 128, 0.1);
@@ -91,7 +92,6 @@ export default {
     border-radius: 16px;
     padding: 0 0.25rem;
   }
-
 }
   .keywordItem:last-child{
     margin-right: .5rem;
