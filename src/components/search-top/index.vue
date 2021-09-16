@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-08-23 22:54:07
- * @LastEditTime: 2021-09-16 08:40:49
+ * @LastEditTime: 2021-09-16 09:01:44
 -->
 <template>
   <div class="searchTop">
@@ -32,6 +32,7 @@
 
 <script>
 export default {
+  name: 'search-top',
   data() {
     return {
       placeholder: '陈奕迅',

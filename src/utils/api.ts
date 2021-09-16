@@ -2,7 +2,7 @@
  * @Descripttion: 接口统一管理
  * @Author: 无声<ivestszheng@qq.com>
  * @Date: 2021-06-29 22:53:52
- * @LastEditTime: 2021-09-12 23:15:50
+ * @LastEditTime: 2021-09-16 08:45:28
  */
 import { get,post } from './axios'
 // 获取轮播图
@@ -15,3 +15,5 @@ export const getRecommendedMusicList = (limit=6) => get(`personalized?limit=${li
 export const getMusicListDetail = (id: String) => get(`/playlist/detail?id=${id}`)
 // 获取歌词
 export const getLyric = (id: String) => get(`/lyric?id=${id}`)
+// 搜索歌曲
+export const searchMusic = (keyword: String) => get(`/search?keywords=${keyword}`)
