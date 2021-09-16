@@ -1,7 +1,7 @@
 /*
  * @Descripttion:
  * @Date: 2021-09-11 22:07:26
- * @LastEditTime: 2021-09-16 22:55:09
+ * @LastEditTime: 2021-09-16 23:44:39
  */
 import { createStore } from 'vuex'
 import { getLyric } from '@/utils/api'
@@ -37,7 +37,7 @@ export default createStore({
         let mill = parseInt(item.slice(7, 10))
         return {
           min, sec, mill,
-          lyric:item.slice(12),
+          lyric:item.slice(11),
           content:item,
           time: mill+sec*1000+min*60*1000
         }
