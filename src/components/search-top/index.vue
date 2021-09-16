@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-08-23 22:54:07
- * @LastEditTime: 2021-09-16 22:35:24
+ * @LastEditTime: 2021-09-16 23:02:13
 -->
 <template>
   <div class="searchTop">
@@ -43,14 +43,14 @@
       <div class="left">
         <div class="index">{{ i + 1 }}</div>
         <div class="content">
-          <div class="title">{{ item.name }}</div>
+          <div class="title" @click="setPlay(item,i)">{{ item.name }}</div>
           <div class="author">
             <span>{{ item.album.name }}</span>
           </div>
         </div>
       </div>
       <div class="right">
-        <svg class="icon" aria-hidden="true" @click="setPlayIndex(i)">
+        <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-shipinbofangyingpian" />
         </svg>
         <svg class="icon" aria-hidden="true">
@@ -106,6 +106,12 @@ export default {
     searchHistoryContent(item) {
       this.searchKeyword = item
       this.saveKeyword()
+    },
+    setPlay(item,i){
+      item.al = item.album
+      item.al.picUrl = item.album.artist.img1v1Url
+      this.$store.commit('pushPlaylist',item)
+      this.$store.commit('setPlayIndex',this.$store.state.playlist.length - 1)
     }
   },
 }

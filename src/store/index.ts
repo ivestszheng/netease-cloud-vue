@@ -1,7 +1,7 @@
 /*
  * @Descripttion:
  * @Date: 2021-09-11 22:07:26
- * @LastEditTime: 2021-09-13 22:08:58
+ * @LastEditTime: 2021-09-16 22:55:09
  */
 import { createStore } from 'vuex'
 import { getLyric } from '@/utils/api'
@@ -55,6 +55,9 @@ export default createStore({
   mutations: {
     setPlaylist: function (state: typeof defaultState, value) {
       state.playlist = value
+    },
+    pushPlaylist: function (state: typeof defaultState, value) {
+      state.playlist.push(value)
     },
     setPlayIndex(state: typeof defaultState, value) {
       state.playCurrentIndex = value

@@ -1,7 +1,7 @@
 <!--
  * @Descripttion:
  * @Date: 2021-09-11 21:35:11
- * @LastEditTime: 2021-09-13 23:22:46
+ * @LastEditTime: 2021-09-16 22:59:00
 -->
 <template>
   <div class="playController">
@@ -98,6 +98,13 @@ export default {
   .left {
     display: flex;
     padding-left: 0.1rem;
+    .content{
+      .title{
+        overflow: hidden;
+    white-space: nowrap;
+    max-width: 4rem;
+      }
+    }
     img {
       width: 0.8rem;
       height: 0.8rem;
