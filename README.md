@@ -82,7 +82,11 @@ const 自我介绍 = {
 
 }
 
+## 截图预览
 
 
 
+|                             首页                             |                           搜索列表                           |                           歌单详情                           |                             歌词                             |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ![首页](https://raw.githubusercontent.com/ivestszheng/images-store/master/img/20210917212550.png) | ![搜索](https://raw.githubusercontent.com/ivestszheng/images-store/master/img/20210917212644.png) | ![歌单详情](https://raw.githubusercontent.com/ivestszheng/images-store/master/img/20210917212710.png) | ![歌词](https://raw.githubusercontent.com/ivestszheng/images-store/master/img/20210917212730.png) |
 
