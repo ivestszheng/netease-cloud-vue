@@ -56,6 +56,8 @@ $ set PORT=4000 && node app.js
 
 通过 Vue 实现网易云音乐移动端，个人希望通过本项目熟悉 Vue3 及移动端开发技巧。我在`Documentation`中记录了一些个人认为的要点，后面因为偷懒就没写了，但总比没有好。本项目有些地方逻辑并不完善，有些地方代码写法不够严谨，但作为一个练手项目，我觉得完成度已经足够了，希望能对你有一些帮助。
 
+Vue2 请看 [基于springboot2+vue2.X的移动端音乐网站](https://github.com/ivestszheng/wusheng-music)
+
 ### 面向对象
 
 对 Vue 有一定了解，并且想要熟悉 Vue3 的人。
@@ -67,20 +69,6 @@ $ set PORT=4000 && node app.js
 - Axios
 - Vue-Router
 - Less
-
-## 关于我
-
-const 自我介绍 = {
-
-​	'**username**': '无声'，
-
-​	'**job**': 前端工程师,
-
-​	'**workExperence**': '半年'，
-
-​	'**contactMe**': [ [GitHub](https://github.com/ivestszheng), [Gitee](https://gitee.com/ivestszheng), [B站](https://space.bilibili.com/3111462), [掘金](https://juejin.cn/user/1618116899507735/posts)]
-
-}
 
 ## 截图预览
 
